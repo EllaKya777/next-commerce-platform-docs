@@ -135,82 +135,19 @@ npm run test:e2e:report   # open HTML report for the last run
 npx playwright test tests/<file>.spec.ts
 ```
 
-### Test Structure
+### Test files
 
------
+| File | Coverage |
+|---|---|
+| `tests/home.spec.ts` | Smoke — homepage loads and renders |
+| `tests/product.spec.ts` | Product page loads and displays expected elements |
+| `tests/cart.spec.ts` | Add / remove, quantity controls, persistence across reload |
+| `tests/checkout.cart.spec.ts` | Cart → shipping → billing flow |
+| `tests/checkout.buy_now.spec.ts` | Buy Now → shipping → billing flow |
+| `tests/db/db.spec.ts` | Product CRUD — create, update, delete via Mongoose ⚠️ |
+| `tests/db/delivery.spec.ts` | Delivery profile reflected on shipping page ⚠️ |
 
-### 1. UI Tests (Safe)
-
-These tests do **not** modify the database and can be run in any environment (local or staging).
-
-#### `tests/home.spec.ts`
-
-- Smoke test
-- Ensures the homepage loads and renders content
-
-#### `tests/product.spec.ts`
-
-- Opens the first product
-- Verifies product page loads and displays expected elements
-
-#### `tests/cart.spec.ts`
-
-Covers guest cart behavior:
-
-- Add item to cart
-- Remove item
-- Cart persists across reloads
-- Quantity buttons (+/–) update the UI
-
-#### `tests/checkout.cart.spec.ts`
-
-Guest checkout flow via the cart:
-
-- Add product
-- Proceed to shipping
-- Fill shipping form
-- Reach billing page
-- Cleanup remaining cart items
-
-#### `tests/checkout.buy_now.spec.ts`
-
-Guest checkout flow using **Buy Now**:
-
-- Click “Buy Now”
-- Fill shipping form
-- Reach billing page
-- Cleanup remaining cart items
-
------
-
-### 2. Database Tests (Write Operations)
-
-These tests **create, update, and delete documents**.  
-They must be run **only against a local or dedicated test database**.
-
-#### `tests/db/db.spec.ts`
-
-Product CRUD:
-
-- Create product
-- Update product
-- Delete product
-- Verify each step via Mongoose models
-
-#### `tests/db/delivery.spec.ts`
-
-Delivery profile integration:
-
-- Create a temporary delivery profile
-- Open `/shipping` page
-- Verify the country appears in the dropdown
-- Delete the test profile
-
-**Note:**
-
-- **Database tests modify data.** Do not run them against production.
-- **UI tests are safe** and do not require any secrets beyond the standard environment variables needed to run the application.
-- If extended coverage is needed (auth flows, admin actions, API tests), additional Playwright tests can be implemented or commissioned.
+> ⚠️ Database tests write to the database. Run them only against a local or dedicated test instance — never against production.
 
 -----
 
