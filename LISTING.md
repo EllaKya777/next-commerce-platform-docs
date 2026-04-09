@@ -6,9 +6,9 @@
 
 A complete e-commerce platform built on Next.js 15, TypeScript, and MongoDB — with a real admin panel, real checkout, real auth, and real order management. Deploy and start selling on day one.
 
-Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
+Video-demo: TOPENSOL - Next-Gen E-commerce Platform - [Click here to watch](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
-Pitch deck: [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
+Pitch Deck: TOPENSOL Strategic Overview - [Click here to view](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
 
 -----
 
