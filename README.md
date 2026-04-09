@@ -5,14 +5,6 @@
 A production-ready, full-stack e-commerce platform built on **Next.js 15 App Router**.  
 Designed for online retail with a focus on flexibility — the catalog filters, themes, translations, delivery rules, and site settings are all managed via the admin panel without touching code or redeploying.
 
-![Homepage screenshot](docs/screenshots/01-homepage.png)
-![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
-![Cart screenshot](docs/screenshots/07-cart.png)
-![Admin collections screenshot](docs/screenshots/04-admin-collections.png)
-![Product card screenshot](docs/screenshots/03-product-card.png)
-![Product edit screenshot](docs/screenshots/05-product-edit.png)
-![Orders screenshot](docs/screenshots/06-orders.png)
-
 Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
 -----
