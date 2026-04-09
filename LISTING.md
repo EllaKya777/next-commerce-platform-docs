@@ -159,15 +159,6 @@ The integration exists because many regional shipping carriers have ready-made W
 
 -----
 
-## Documentation
-
-- **[README](README.md)** — setup, environment variables, quick start
-<!-- - `PITCH-DECK.md` — pitch deck presentation -->
-
-Additional documentation (full technical architecture, admin guide) is available after purchase.
-
------
-
 ## Requirements
 
 - Node.js ≥ 18.0.0
