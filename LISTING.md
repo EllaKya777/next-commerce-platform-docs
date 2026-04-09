@@ -1,8 +1,12 @@
 # next-e-commerce — Full-Stack E-Commerce Platform
 
+![next-e-commerce banner](./banner.svg)
+
 **Production-ready. Admin-driven. Built to scale.**
 
 A complete e-commerce platform built on Next.js 15, TypeScript, and MongoDB — with a real admin panel, real checkout, real auth, and real order management. Deploy and start selling on day one.
+
+Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
 -----
 
@@ -47,6 +51,8 @@ The architecture already supports isolated storefronts with separate admin panel
 
 ### Storefront
 
+![Homepage screenshot](docs/screenshots/01-homepage.png)
+![Product card screenshot](docs/screenshots/03-product-card.png)
 - Responsive design — fluid adaptation across all screen sizes
 - Product catalog with dynamic filtering: categories, subcategories, brand, and admin-defined custom filters (configured in the admin panel, no code changes)
 - Full-text search — when active, overrides all other filters
@@ -55,6 +61,8 @@ The architecture already supports isolated storefronts with separate admin panel
 - Cookie consent banner with GTM integration
 
 ### Cart & Checkout
+
+![Cart screenshot](docs/screenshots/07-cart.png)
 
 - Cart stored in MongoDB — persists for 5 days (TTL index)
 - One active cart per device; guest and authenticated carts handled separately
@@ -73,6 +81,10 @@ The architecture already supports isolated storefronts with separate admin panel
 - Customer profile: order history with status tracking, downloadable invoices
 
 ### Admin Panel (`/admin`)
+
+![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
+![Admin collections screenshot](docs/screenshots/04-admin-collections.png)
+![Product edit screenshot](docs/screenshots/05-product-edit.png)
 
 - **Collections** — CRUD for Products, Categories, and Posts with drag-resizable columns, bulk operations, and bidirectional WooCommerce sync
 - **Import / Export** — XLSX and JSON, differential algorithm (create / update / delete), safe to retry
@@ -152,8 +164,13 @@ The integration exists because many regional shipping carriers have ready-made W
 ## Documentation
 
 - `README.md` — setup, environment variables, quick start
-- `Technical_Documentation.docx` — full architecture reference (22 sections)
-- `/admin/guide` — built-in admin documentation, accessible after login
+- `LISTING.md` — feature list and product description
+- `PITCH-DECK.md` — pitch deck presentation
+- `docs/next-ecommerce-pitch-deck (1).pptx` — pitch deck PowerPoint file
+- `/docs/screenshots` — UI previews
+
+Additional documentation (full technical architecture, admin guide, pitch deck)  
+is available after purchase.
 
 -----
 
@@ -167,7 +184,11 @@ The integration exists because many regional shipping carriers have ready-made W
 
 ## License
 
-[license]
+This project is proprietary and not open‑source.
+
+All rights reserved.  
+You may not copy, modify, distribute, or use any part of this project  
+without explicit written permission from the author.
 
 -----
 

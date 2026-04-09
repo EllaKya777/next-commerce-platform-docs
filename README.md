@@ -1,7 +1,19 @@
 # next-e-commerce
 
+![next-e-commerce banner](./banner.svg)
+
 A production-ready, full-stack e-commerce platform built on **Next.js 15 App Router**.  
 Designed for online retail with a focus on flexibility — the catalog filters, themes, translations, delivery rules, and site settings are all managed via the admin panel without touching code or redeploying.
+
+![Homepage screenshot](docs/screenshots/01-homepage.png)
+![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
+![Cart screenshot](docs/screenshots/07-cart.png)
+![Admin collections screenshot](docs/screenshots/04-admin-collections.png)
+![Product card screenshot](docs/screenshots/03-product-card.png)
+![Product edit screenshot](docs/screenshots/05-product-edit.png)
+![Orders screenshot](docs/screenshots/06-orders.png)
+
+Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
 -----
 
@@ -211,9 +223,13 @@ WooCommerce is a **built-in part of the architecture**.
 - **MongoDB → WooCommerce** — order created in WooCommerce via REST API
 - **Profile ← WooCommerce** — order history and statuses fetched from WooCommerce
 
+![WooCommerce Order screenshot](docs/screenshots/06-orders.png)
+
 -----
 
 ## Admin Panel
+
+![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
 
 Access: `/admin` — requires `role: admin`.  
 Admin role is assigned **manually via direct MongoDB edit only** — there is no UI for role promotion.
@@ -234,6 +250,7 @@ Admin role is assigned **manually via direct MongoDB edit only** — there is no
 
 ## Product Import
 
+![Collection Products screenshot](docs/screenshots/08-collection-products-2.png)
 Products, categories, and posts can be imported via **XLSX or JSON**.
 
 The import pipeline uses a **differential algorithm**:
@@ -284,6 +301,7 @@ Redirects for products, categories, and posts:
 ## Documentation
 
 Full technical documentation: `Technical_Documentation.docx`
+Pitch deck: `PITCH-DECK.md` and `docs/next-ecommerce-pitch-deck (1).pptx`
 
 -----
 
