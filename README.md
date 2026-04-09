@@ -299,12 +299,3 @@ Redirects for products, categories, and posts:
 
 Additional documentation (full technical architecture, admin guide) is available after purchase.
 
------
-
-## Roadmap
-
-- MongoDB Vector Search — semantic product discovery
-- AI chatbot — powered by vector embeddings of the catalog
-- Full order migration to MongoDB — remove WooCommerce dependency entirely
-- Multi-tenancy — manage multiple storefronts from one admin panel (groundwork already in place)
-- Real-time cart counter in header
