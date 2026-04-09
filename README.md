@@ -282,7 +282,7 @@ Redirects for products, categories, and posts:
 ## Key Architecture Decisions
 
 - **Performance & SEO by default** — Next.js 15 Server Components minimize client-side JS. Dynamic metadata, JSON-LD, sitemap, and 410 redirects are built in from day one.
-- **Zero-dependency UI** — no Tailwind, no MUI/AntD. Native CSS Modules + CSS Variables. Full control over bundle and rendering.
+- **Zero-dependency UI** — Native CSS Modules + CSS Variables. Full control over bundle and rendering.
 - **Consistent codebase** — no third-party custom packages, no mixed paradigms. Every part of the application is written in the same style and structure. Easy to extend, easy to hand off.
 - **Admin-first configurability** — filters, themes, translations, delivery rules managed from the panel. No redeploy needed.
 - **Defense in depth security** — Zod validation + DOMPurify + CSP nonce + Rate Limiting + Cloudflare WAF (recommended).
