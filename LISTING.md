@@ -8,6 +8,8 @@ A complete e-commerce platform built on Next.js 15, TypeScript, and MongoDB — 
 
 Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
+Pitch deck: [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
+
 -----
 
 ## Built With
@@ -163,14 +165,10 @@ The integration exists because many regional shipping carriers have ready-made W
 
 ## Documentation
 
-- `README.md` — setup, environment variables, quick start
-- `LISTING.md` — feature list and product description
-- `PITCH-DECK.md` — pitch deck presentation
-- `docs/next-ecommerce-pitch-deck (1).pptx` — pitch deck PowerPoint file
-- `/docs/screenshots` — UI previews
+- **[README](README.md)** — setup, environment variables, quick start
+<!-- - `PITCH-DECK.md` — pitch deck presentation -->
 
-Additional documentation (full technical architecture, admin guide, pitch deck)  
-is available after purchase.
+Additional documentation (full technical architecture, admin guide) is available after purchase.
 
 -----
 

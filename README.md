@@ -7,6 +7,8 @@ Designed for online retail with a focus on flexibility — the catalog filters, 
 
 Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
+Pitch deck: [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
+
 -----
 
 ## Why Next.js 15 + MongoDB
