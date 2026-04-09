@@ -149,16 +149,6 @@ The integration exists because many regional shipping carriers have ready-made W
 
 -----
 
-## Roadmap
-
-|Feature                                                 |Status            |
-|--------------------------------------------------------|------------------|
-|MongoDB Vector Search — semantic product discovery      |Planned           |
-|AI shopping assistant — vector embeddings of the catalog|Planned           |
-|Multi-tenancy — multiple storefronts, one admin panel   |Architecture ready|
-
------
-
 ## Requirements
 
 - Node.js ≥ 18.0.0
