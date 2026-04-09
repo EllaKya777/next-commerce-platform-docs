@@ -5,9 +5,9 @@
 A production-ready, full-stack e-commerce platform built on **Next.js 15 App Router**.  
 Designed for online retail with a focus on flexibility — the catalog filters, themes, translations, delivery rules, and site settings are all managed via the admin panel without touching code or redeploying.
 
-Video-demo: [https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
+Video-demo: TOPENSOL - Next-Gen E-commerce Platform - [Click here to watch](https://youtu.be/NMFjXYJ2XRA?si=8llTnj9RZ9TwWycp)
 
-Pitch deck: [Google Slides](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
+Pitch Deck: TOPENSOL Strategic Overview - [Click here to view](https://docs.google.com/presentation/d/e/2PACX-1vTiT7tjJ0JnZiEnJ-P47p8Vu_9tmrbAuBDivDXiEI1CBasQdKg_zjY3XKTPyfM7PA/pub?start=false&loop=false&delayms=3000)
 
 -----
 
