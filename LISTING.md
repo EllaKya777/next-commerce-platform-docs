@@ -50,7 +50,11 @@ The architecture already supports isolated storefronts with separate admin panel
 ### Storefront
 
 ![Homepage screenshot](docs/screenshots/01-homepage.png)
+*Homepage — Hero & Products Preview*
+
 ![Product card screenshot](docs/screenshots/03-product-card.png)
+*Product Card — Sample Data*
+
 - Responsive design — fluid adaptation across all screen sizes
 - Product catalog with dynamic filtering: categories, subcategories, brand, and admin-defined custom filters (configured in the admin panel, no code changes)
 - Full-text search — when active, overrides all other filters
@@ -61,6 +65,7 @@ The architecture already supports isolated storefronts with separate admin panel
 ### Cart & Checkout
 
 ![Cart screenshot](docs/screenshots/07-cart.png)
+*Cart Page — Preview*
 
 - Cart stored in MongoDB — persists for 5 days (TTL index)
 - One active cart per device; guest and authenticated carts handled separately
@@ -81,8 +86,13 @@ The architecture already supports isolated storefronts with separate admin panel
 ### Admin Panel (`/admin`)
 
 ![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
+*Admin Panel — Overview*
+
 ![Admin collections screenshot](docs/screenshots/04-admin-collections.png)
+*Admin Panel — Collections Overview*
+
 ![Product edit screenshot](docs/screenshots/05-product-edit.png)
+*Product Edit Modal*
 
 - **Collections** — CRUD for Products, Categories, and Posts with drag-resizable columns, bulk operations, and bidirectional WooCommerce sync
 - **Import / Export** — XLSX and JSON, differential algorithm (create / update / delete), safe to retry

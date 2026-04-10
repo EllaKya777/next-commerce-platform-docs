@@ -218,12 +218,14 @@ WooCommerce is a **built-in part of the architecture**.
 - **Profile ← WooCommerce** — order history and statuses fetched from WooCommerce
 
 ![WooCommerce Order screenshot](docs/screenshots/06-orders.png)
+*WooCommerce Order — Preview*
 
 -----
 
 ## Admin Panel
 
 ![Admin panel screenshot](docs/screenshots/02-admin-panel.png)
+*Admin Panel — Overview*
 
 Access: `/admin` — requires `role: admin`.  
 Admin role is assigned **manually via direct MongoDB edit only** — there is no UI for role promotion.
@@ -245,6 +247,8 @@ Admin role is assigned **manually via direct MongoDB edit only** — there is no
 ## Product Import
 
 ![Collection Products screenshot](docs/screenshots/08-collection-products-2.png)
+*Admin Panel — Products Collection*
+
 Products, categories, and posts can be imported via **XLSX or JSON**.
 
 The import pipeline uses a **differential algorithm**:
