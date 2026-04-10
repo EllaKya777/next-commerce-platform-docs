@@ -53,6 +53,7 @@ The architecture already supports isolated storefronts with separate admin panel
 *Homepage — Hero & Products Preview*
 
 ![Product card screenshot](docs/screenshots/03-product-card.png)
+
 *Product Card — Sample Data*
 
 - Responsive design — fluid adaptation across all screen sizes
