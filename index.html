@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>next-e-commerce — Full-Stack E-Commerce Platform</title>
+<link href="https://fonts.googleapis.com/…400;600;700;800&family=DM+Mono:wght@300;400;500&family=Newsreader:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+--black: #0a0a08;
+--off-white: #f5f3ee;
+--cream: #ede9e0;
+--accent: #09a2f5;
+--accent-dim: #094cf4;
+--mid: #6b6b60;
+--border: #d4d0c6;
+--card-bg: #f0ede5;
+}
+
+html { font-size: 16px; }
+
+body {
+background: var(--off-white);
+color: var(--black);
+font-family: 'Newsreader', Georgia, serif;
+font-weight: 300;
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+header {
+background: var(--black);
+color: var(--off-white);
+padding: 72px 64px 56px;
+position: relative;
+overflow: hidden;
+}
+header::before {
+content: '';
+position: absolute;
+top: -80px; right: -80px;
+width: 400px; height: 400px;
+background: radial-gradient(circle, rgba(9,162,245,0.12) 0%, transparent 70%);
+border-radius: 50%;
+}
+header::after {
+content: '';
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.header-eyebrow {
+font-family: 'DM Mono', monospace;
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 28px;
+}
+
+h1 {
+font-family: 'Syne', sans-serif;
+font-size: clamp(42px, 6vw, 80px);
+font-weight: 800;
+line-height: 0.95;
+letter-spacing: -0.03em;
+margin-bottom: 24px;
+position: relative;
+}
+h1 em {
+font-style: normal;
+color: var(--accent);
+}
+
+.header-sub {
+font-size: 18px;
+color: rgba(245,243,238,0.65);
+max-width: 600px;
+line-height: 1.55;
+font-style: italic;
+}
+
+.header-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-top: 36px;
+}
+a { text-decoration: none; }
+.tag {
+font-family: 'DM Mono', monospace;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 5px 12px;
+border: 1px solid #048b8b;
+color: #048b8b;
+border-radius: 4px;
+background: rgba(4, 139, 139, 0.05);
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+background: var(--cream);
+border-bottom: 1px solid var(--border);
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1px;
+background-color: var(--border);
+}
+.stat-item {
+background: var(--cream);
+padding: 28px 32px;
+text-align: center;
+}
+.stat-number {
+font-family: 'Syne', sans-serif;
+font-size: clamp(32px, 4vw, 48px);
+font-weight: 800;
+line-height: 1;
+letter-spacing: -0.03em;
+color: var(--black);
+}
+.stat-number em {
+font-style: normal;
+color: var(--accent-dim);
+}
+.stat-label {
+font-family: 'DM Mono', monospace;
+font-size: 10px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--mid);
+margin-top: 6px;
+}
+
+/* ── MAIN ── */
+main {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 48px 80px;
+}
+
+/* ── SECTION HEADERS ── */
+.section { padding-top: 64px; }
+.section-label {
+font-family: 'DM Mono', monospace;
+font-size: 10px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--mid);
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.section-label::after {
+content: '';
+flex: 1;
+height: 1px;
+background: var(--border);
+}
+
+h2 {
+font-family: 'Syne', sans-serif;
+font-size: clamp(28px, 3.5vw, 42px);
+font-weight: 700;
+line-height: 1.1;
+letter-spacing: -0.025em;
+margin-bottom: 32px;
+}
+
+/* ── PROBLEM STRIP ── */
+.problem-strip {
+margin-top: 8px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(--border);
+border: 1px solid var(--border);
+}
+.problem-item {
+background: var(--off-white);
+padding: 28px 32px;
+}
+.problem-item .problem-label {
+font-family: 'DM Mono', monospace;
+font-size: 9px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: #c0392b;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+.problem-item .problem-label::before {
+content: '✕';
+font-size: 10px;
+font-weight: 700;
+}
+.problem-item h4 {
+font-family: 'Syne', sans-serif;
+font-size: 16px;
+font-weight: 700;
+margin-bottom: 8px;
+letter-spacing: -0.01em;
+}
+.problem-item p {
+font-size: 13px;
+color: var(--mid);
+line-height: 1.6;
+}
+
+/* ── PITCH BLOCK ── */
+.pitch {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+margin-top: 8px;
+background: var(--border);
+border: 1px solid var(--border);
+}
+.pitch-item {
+background: var(--off-white);
+padding: 32px 36px;
+}
+.pitch-item:first-child {
+grid-column: 1 / -1;
+background: var(--black);
+color: var(--off-white);
+padding: 40px 48px;
+}
+.pitch-item:first-child p {
+font-size: 22px;
+line-height: 1.55;
+max-width: 700px;
+font-style: italic;
+}
+.pitch-item h3 {
+font-family: 'Syne', sans-serif;
+font-size: 13px;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 10px;
+color: var(--accent-dim);
+}
+.pitch-item:first-child h3 { color: var(--accent); }
+.pitch-item p {
+font-size: 15px;
+color: var(--mid);
+line-height: 1.65;
+}
+.pitch-item:first-child p { color: rgba(245,243,238,0.75); }
+
+/* ── STACK GRID ── */
+.stack-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 1px;
+background: var(--border);
+border: 1px solid var(--border);
+margin-top: 8px;
+}
+.stack-cell {
+background: var(--off-white);
+padding: 20px 24px;
+}
+.stack-cell .layer {
+font-family: 'DM Mono', monospace;
+font-size: 9px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--mid);
+margin-bottom: 6px;
+}
+.stack-cell .tech {
+font-family: 'Syne', sans-serif;
+font-size: 14px;
+font-weight: 600;
+line-height: 1.3;
+color: var(--black);
+}
+
+/* ── FEATURE LIST ── */
+.features {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0;
+border: 1px solid var(--border);
+margin-top: 8px;
+}
+.feature-block {
+padding: 28px 32px;
+border-bottom: 1px solid var(--border);
+}
+.feature-block:nth-child(odd) { border-right: 1px solid var(--border); }
+.feature-block h4 {
+font-family: 'Syne', sans-serif;
+font-size: 15px;
+font-weight: 700;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.feature-block h4::before {
+content: attr(data-icon);
+font-size: 18px;
+line-height: 1;
+}
+.feature-block ul {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 5px;
+}
+.feature-block ul li {
+font-size: 13px;
+color: var(--mid);
+padding-left: 14px;
+position: relative;
+line-height: 1.5;
+}
+.feature-block ul li::before {
+content: '—';
+position: absolute;
+left: 0;
+color: var(--border);
+font-size: 11px;
+top: 2px;
+}
+
+/* ── ADVANTAGES ── */
+.advantages {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(--border);
+border: 1px solid var(--border);
+margin-top: 8px;
+}
+.advantage-item {
+background: var(--off-white);
+padding: 28px 32px;
+}
+.adv-number {
+font-family: 'Syne', sans-serif;
+font-size: 48px;
+font-weight: 800;
+line-height: 1;
+letter-spacing: -0.04em;
+color: var(--accent-dim);
+opacity: 0.25;
+margin-bottom: 8px;
+}
+.adv-title {
+font-family: 'Syne', sans-serif;
+font-size: 15px;
+font-weight: 700;
+margin-bottom: 8px;
+letter-spacing: -0.01em;
+}
+.adv-desc {
+font-size: 13px;
+color: var(--mid);
+line-height: 1.6;
+}
+
+/* ── ROADMAP ── */
+.roadmap {
+display: flex;
+flex-direction: column;
+gap: 1px;
+background: var(--border);
+border: 1px solid var(--border);
+margin-top: 8px;
+}
+.roadmap-item {
+background: var(--off-white);
+padding: 22px 32px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+}
+.roadmap-item .name {
+font-family: 'Syne', sans-serif;
+font-size: 15px;
+font-weight: 600;
+min-width: 200px;
+}
+.roadmap-item .desc {
+font-size: 13px;
+color: var(--mid);
+flex: 1;
+padding-left: 28px;
+}
+.roadmap-item .status {
+font-family: 'DM Mono', monospace;
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 4px 12px;
+border-radius: 2px;
+white-space: nowrap;
+}
+.status-planned { background: rgba(74, 93, 240, 0.08); color: var(--accent-dim); border: 1px solid rgba(74, 93, 240, 0.3); }
+.status-ready { background: rgba(4,139,139,0.07); color: #048b8b; border: 1px solid rgba(4,139,139,0.3); }
+
+/* ── DOCS STRIP ── */
+.docs-strip {
+margin-top: 64px;
+background: var(--black);
+color: var(--off-white);
+padding: 40px 48px;
+display: grid;
+grid-template-columns: 1fr auto;
+align-items: center;
+gap: 40px;
+}
+.docs-strip h3 {
+font-family: 'Syne', sans-serif;
+font-size: 22px;
+font-weight: 700;
+margin-bottom: 8px;
+}
+.docs-strip p {
+font-size: 14px;
+color: rgba(245,243,238,0.5);
+font-style: italic;
+}
+.docs-list {
+display: flex;
+flex-direction: column;
+gap: 6px;
+min-width: 240px;
+}
+.doc-link {
+font-family: 'DM Mono', monospace;
+font-size: 11px;
+color: #71c3f6;
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 8px 14px;
+border: 1px solid rgba(113, 195, 246, 0.2);
+background: rgba(113, 195, 246, 0.04);
+transition: border-color 0.2s;
+}
+.doc-link:hover { border-color: rgba(113, 195, 246, 0.5); }
+.doc-link strong { color: var(--off-white); font-weight: 500; letter-spacing: 0.06em; }
+
+/* ── FOOTER ── */
+footer {
+border-top: 1px solid var(--border);
+padding: 24px 48px;
+max-width: 1100px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+footer p {
+font-family: 'DM Mono', monospace;
+font-size: 11px;
+color: var(--mid);
+letter-spacing: 0.08em;
+}
+footer strong { color: var(--black); }
+
+@media (max-width: 768px) {
+header { padding: 48px 28px 40px; }
+main { padding: 0 24px 60px; }
+.stats-bar { grid-template-columns: repeat(2, 1fr); }
+.pitch { grid-template-columns: 1fr; }
+.pitch-item:first-child { grid-column: 1; padding: 28px; }
+.problem-strip { grid-template-columns: 1fr; }
+.features { grid-template-columns: 1fr; }
+.feature-block:nth-child(odd) { border-right: none; }
+.advantages { grid-template-columns: 1fr; }
+.docs-strip { grid-template-columns: 1fr; }
+.roadmap-item { flex-wrap: wrap; }
+.roadmap-item .desc { padding-left: 0; }
+footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">3 Years R&amp;D · Production-Ready · Admin-Driven · Built to Scale</div>
+  <h1>next-<em>e-commerce</em></h1>
+  <p class="header-sub">A complete full-stack e-commerce platform — real admin panel, real checkout, real auth, real order management. Not a starter kit. Not a template. Deploy and start selling on day one.</p>
+  <div class="header-tags">
+    <span class="tag">Next.js 15</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">MongoDB</span>
+    <span class="tag">React 19</span>
+    <span class="tag">Stripe</span>
+    <span class="tag">Passwordless Auth</span>
+    <span class="tag">WooCommerce Engine</span>
+    <span class="tag">AI-Ready</span>
+    <span class="tag">Multi-Tenant Ready</span>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number"><em>3</em> yrs</div>
+    <div class="stat-label">R&amp;D invested</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number"><em>22</em></div>
+    <div class="stat-label">Documentation sections</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number"><em>0</em></div>
+    <div class="stat-label">3rd-party UI libraries</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number"><em>100%</em></div>
+    <div class="stat-label">Exclusive sale, no recurring fees</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- THE PROBLEM -->
+
+  <section class="section">
+    <div class="section-label">The Problem With Alternatives</div>
+    <div class="problem-strip">
+      <div class="problem-item">
+        <div class="problem-label">Templates &amp; starters</div>
+        <h4>UI kits sold as platforms</h4>
+        <p>Most "e-commerce starters" have no real checkout, no order management, no auth. You end up building the actual product yourself — from scratch.</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-label">SaaS platforms</div>
+        <h4>Shopify locks you in forever</h4>
+        <p>Recurring fees, limited customization, no data ownership. Platform restrictions turn your business into a monthly hostage situation.</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-label">Custom build</div>
+        <h4>3-6 months, a full team</h4>
+        <p>Building production-ready e-commerce from scratch — security, SEO, i18n, admin, checkout — requires a team and months of work before you sell a single item.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS PLATFORM -->
+
+  <section class="section">
+    <div class="section-label">Why This Platform</div>
+    <div class="pitch">
+      <div class="pitch-item">
+        <h3>The Pitch</h3>
+        <p>Catalog filters, themes, translations, delivery rules, and site settings — all managed from the admin panel without touching code or redeploying. Ship once, operate forever. No platform fees. No lock-in. Full ownership.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>Performance &amp; SEO — Built In</h3>
+        <p>Next.js 15 Server Components minimize client-side JS from day one. Dynamic metadata, JSON-LD structured data, auto sitemap, and 410 redirects on deletion — not bolted on later, but core architecture.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>AI-Ready by Default</h3>
+        <p>MongoDB Vector Search available natively. Add semantic product discovery and an AI shopping assistant with zero architectural changes. No database migration required.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>Full Marketing Freedom</h3>
+        <p>No platform restrictions. Build custom loyalty programs, complex discount engines, or any conversion logic — exactly the way your business model requires, without platform API limits or app-store fees.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>Zero UI Dependencies</h3>
+        <p>Pure React + native CSS Modules. No hidden bundle bloat, no breaking library updates. Full control over rendering performance — what you see is what ships.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+
+  <section class="section">
+    <div class="section-label">Technology Stack</div>
+    <div class="stack-grid">
+      <div class="stack-cell"><div class="layer">Framework</div><div class="tech">Next.js 15<br>App Router</div></div>
+      <div class="stack-cell"><div class="layer">Language</div><div class="tech">TypeScript<br>strict mode</div></div>
+      <div class="stack-cell"><div class="layer">UI</div><div class="tech">React 19<br>CSS Modules</div></div>
+      <div class="stack-cell"><div class="layer">Database</div><div class="tech">MongoDB<br>+ Mongoose</div></div>
+      <div class="stack-cell"><div class="layer">Auth</div><div class="tech">NextAuth v5<br>OAuth + Magic Link</div></div>
+      <div class="stack-cell"><div class="layer">State</div><div class="tech">TanStack<br>React Query v5</div></div>
+      <div class="stack-cell"><div class="layer">Payments</div><div class="tech">Stripe<br>redirect checkout</div></div>
+      <div class="stack-cell"><div class="layer">Images</div><div class="tech">Cloudinary<br>custom loader</div></div>
+      <div class="stack-cell"><div class="layer">Order Engine</div><div class="tech">WooCommerce<br>REST API</div></div>
+      <div class="stack-cell"><div class="layer">Email + PDF</div><div class="tech">Nodemailer<br>+ pdf-lib</div></div>
+      <div class="stack-cell"><div class="layer">i18n</div><div class="tech">next-i18n-router<br>+ react-intl</div></div>
+      <div class="stack-cell"><div class="layer">Testing</div><div class="tech">Playwright<br>E2E</div></div>
+      <div class="stack-cell"><div class="layer">Security</div><div class="tech">Zod + DOMPurify<br>+ CSP + WAF</div></div>
+      <div class="stack-cell"><div class="layer">Monitoring</div><div class="tech">Sentry</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="section">
+    <div class="section-label">What's Included</div>
+    <div class="features">
+      <div class="feature-block">
+        <h4 data-icon="🛍️">Storefront</h4>
+        <ul>
+          <li>Responsive catalog with dynamic admin-defined filters</li>
+          <li>Full-text search overriding all other filters</li>
+          <li>Product cards with live variant switching</li>
+          <li>Gallery, carousel, tabbed product info</li>
+          <li>Cookie consent + GTM integration</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4 data-icon="🛒">Cart &amp; Checkout</h4>
+        <ul>
+          <li>MongoDB-persisted cart — 5-day TTL, one per device</li>
+          <li>Smart cart sync on login</li>
+          <li>5-step checkout + Buy Now bypass</li>
+          <li>Stripe redirect + Cash on Delivery (per country)</li>
+          <li>PDF invoice generated server-side, sent by email</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4 data-icon="⚙️">Admin Panel</h4>
+        <ul>
+          <li>CRUD for Products, Categories, Posts + WooCommerce sync</li>
+          <li>XLSX / JSON import with differential algorithm</li>
+          <li>Live theme editor + translation editor (no rebuild)</li>
+          <li>Per-country delivery profiles</li>
+          <li>Built-in guide documentation — 22 sections</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4 data-icon="🔒">Auth &amp; Security</h4>
+        <ul>
+          <li>Passwordless only: Google OAuth + Magic Link</li>
+          <li>Middleware pipeline: i18n → IP filter → CSP nonce</li>
+          <li>Zod validation on all API inputs</li>
+          <li>DOMPurify on all rendered content</li>
+          <li>Cloudflare WAF recommended at perimeter</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4 data-icon="🌍">SEO &amp; i18n</h4>
+        <ul>
+          <li>generateMetadata() + Open Graph on all pages</li>
+          <li>JSON-LD: Organization, BlogPosting, FAQPage, Review</li>
+          <li>Auto sitemap.xml + 410 Gone on deletion</li>
+          <li>Google Shopping XML feed</li>
+          <li>Locale-prefixed routing, managed from admin</li>
+        </ul>
+      </div>
+      <div class="feature-block">
+        <h4 data-icon="📦">Order Management</h4>
+        <ul>
+          <li>Dual-store: MongoDB + WooCommerce</li>
+          <li>Completed orders retained 6 months in MongoDB</li>
+          <li>Order visibility by Billing email</li>
+          <li>Customer profile with status tracking + invoices</li>
+          <li>E2E Playwright tests for all critical flows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE ADVANTAGES -->
+
+  <section class="section">
+    <div class="section-label">Why Buyers Choose This Over Alternatives</div>
+    <div class="advantages">
+      <div class="advantage-item">
+        <div class="adv-number">01</div>
+        <div class="adv-title">Full Ownership, Zero Recurring Costs</div>
+        <div class="adv-desc">One-time acquisition. No monthly SaaS fees, no platform percentages, no vendor lock-in. Every dollar in revenue stays yours.</div>
+      </div>
+      <div class="advantage-item">
+        <div class="adv-number">02</div>
+        <div class="adv-title">3-6 Months Saved From Day One</div>
+        <div class="adv-desc">3 years of R&D compressed into a ready-to-ship codebase. What a team builds in months is available to deploy and configure in days.</div>
+      </div>
+      <div class="advantage-item">
+        <div class="adv-number">03</div>
+        <div class="adv-title">Human-Authored, Audited Codebase</div>
+        <div class="adv-desc">TypeScript strict mode, memory leak audit completed, consistent patterns throughout. No legacy debt. No AI-generated scaffolding. Built to be extended.</div>
+      </div>
+      <div class="advantage-item">
+        <div class="adv-number">04</div>
+        <div class="adv-title">Multi-Tenant &amp; SaaS Ready</div>
+        <div class="adv-desc">Data model already supports isolated storefronts with separate admin panels. Extending to a SaaS product requires configuration, not redevelopment.</div>
+      </div>
+      <div class="advantage-item">
+        <div class="adv-number">05</div>
+        <div class="adv-title">AI &amp; Semantic Search Prepared</div>
+        <div class="adv-desc">MongoDB Vector Search native. AI shopping assistant and semantic product discovery can be added without structural changes or database migrations.</div>
+      </div>
+      <div class="advantage-item">
+        <div class="adv-number">06</div>
+        <div class="adv-title">Operates Without Developers</div>
+        <div class="adv-desc">Filters, themes, translations, delivery rules — all managed from the admin panel. Clients operate the store without a developer on call for every change.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALABILITY -->
+
+  <section class="section">
+    <div class="section-label">Scalability &amp; Future-Proof</div>
+    <div class="pitch" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="pitch-item" style="grid-column: auto; background: var(--black); color: var(--off-white);">
+        <h3>Enterprise Foundation</h3>
+        <p>API-first architecture. Whether you need a <strong>Native Mobile App</strong>, a <strong>Headless setup</strong>, or a <strong>B2B Portal</strong> — the core handles it without rewriting the base. The business grows; the platform grows with it.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>Analytics &amp; ERP Ready</h3>
+        <p>Order data lives in MongoDB — fully independent of WooCommerce. Direct integration with analytics platforms, CRMs, and ERP systems requires no additional middleware.</p>
+      </div>
+      <div class="pitch-item">
+        <h3>Multi-Instance Capable</h3>
+        <p>Logic is decoupled from the UI. Multiple storefronts or isolated vendor environments are a configuration step — not a development cycle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GROWTH POTENTIAL -->
+
+  <section class="section">
+    <div class="section-label">Growth Potential</div>
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <div class="name">Semantic Search</div>
+        <div class="desc">MongoDB Vector Search is natively available — activate AI-powered product discovery without touching the data model or infrastructure</div>
+        <div class="status status-ready">Architecture Ready</div>
+      </div>
+      <div class="roadmap-item">
+        <div class="name">AI Shopping Assistant</div>
+        <div class="desc">Conversational product discovery layer — the platform is already structured for it, no database migration required</div>
+        <div class="status status-ready">Architecture Ready</div>
+      </div>
+      <div class="roadmap-item">
+        <div class="name">Abandoned Cart Recovery</div>
+        <div class="desc">Email infrastructure (Nodemailer) and cart persistence (MongoDB TTL) are already in place — automated recovery sequences are a natural next layer</div>
+        <div class="status status-ready">Infrastructure Ready</div>
+      </div>
+      <div class="roadmap-item">
+        <div class="name">Loyalty &amp; Promotions Engine</div>
+        <div class="desc">Flexible discount rules, tiered loyalty programs, coupon management — the admin panel and order model support this without structural changes</div>
+        <div class="status status-ready">Infrastructure Ready</div>
+      </div>
+      <div class="roadmap-item">
+        <div class="name">Multi-Tenancy / SaaS</div>
+        <div class="desc">Data model already supports isolated storefronts with separate admin panels — turning this into a SaaS product is a configuration step, not a rebuild</div>
+        <div class="status status-ready">Architecture Ready</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACQUISITION -->
+
+  <section class="section">
+    <div class="docs-strip">
+      <div>
+        <h3>Exclusive Acquisition</h3>
+        <p style="color: rgba(245,243,238,0.7); font-style: normal; margin-bottom: 12px;">Complete production-ready source code, 22-section technical documentation, and 3 years of R&amp;D — sold exclusively as a single transaction. No recurring fees. No platform dependency.</p>
+        <p style="color: rgba(245,243,238,0.55); font-style: italic; font-size: 13px; margin-bottom: 20px;">This version is sold once, to one buyer. The developer retains the right to continue evolving the codebase independently — but this specific release will not be resold.</p>
+        <p style="color: rgba(245,243,238,0.55); font-style: italic; font-size: 13px; margin-bottom: 20px; border-left: 2px solid rgba(9,162,245,0.4); padding-left: 14px;">3-month bug warranty included. If a defect is found in the platform under normal intended use, it will be fixed at no charge. Setup, configuration, and custom development are separate engagements.</p>
+        <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+          <span class="tag">Exclusive Source License</span>
+          <span class="tag">Zero Debt Code</span>
+          <span class="tag">22-Section Docs</span>
+          <span class="tag">E2E Test Suite</span>
+        </div>
+      </div>
+      <div class="docs-list">
+        <a href="https://github.com/…it" target="_blank" class="doc-link">
+          <span>📄</span> <strong>GitHub (Public):</strong> README &amp; Listing
+        </a>
+        <a href="https://docs.google.com/…ng" target="_blank" class="doc-link">
+          <span>📘</span> <strong>Pitch Deck:</strong> Valuation &amp; Terms
+        </a>
+        <a href="https://youtu.be/…wa" target="_blank" class="doc-link">
+          <span>🎥</span> <strong>Video Demo:</strong> Walkthrough
+        </a>
+        <a href="mailto:contactusnow@email.cz" class="doc-link" style="border-color: rgba(9,162,245,0.4); background: rgba(9,162,245,0.05);">
+          <span>📧</span> <strong>Contact Founder:</strong> Email Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div style="width: 100%;">
+    <p><strong>next-e-commerce</strong> — production-ready from day one, built to grow.</p>
+    <p>Node.js ≥ 18 &nbsp;·&nbsp; MongoDB Atlas or self-managed &nbsp;·&nbsp; See README for full env reference</p>
+    <p style="margin-top: 16px; opacity: 0.6; font-size: 10px; text-transform: uppercase;">
+      © 2026 TOP Real Estate s.r.o. · ID: 28167406 · All Rights Reserved
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
